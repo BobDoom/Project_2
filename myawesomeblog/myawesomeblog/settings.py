@@ -76,8 +76,14 @@ WSGI_APPLICATION = 'myawesomeblog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'myawesomeblogdb',
+        'USER': 'postgres',
+        'PASSWORD': 'blog1234',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -120,6 +126,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Прописать путь к картинкам в Базе данных
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Прописать путь к картинкам в Базе данных и на диске (название папки)
 
-MEDIA_URL = '/media/'  # Прописать путь к картинкам в Структуре папок сайта
+MEDIA_URL = '/media/'  # Прописать путь к картинкам в Структуре папок сайта в адресной строке (в URL), может называться как угодно, отображается только в адресной строке 
