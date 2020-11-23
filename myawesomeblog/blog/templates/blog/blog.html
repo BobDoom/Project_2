@@ -54,45 +54,27 @@
               <div class="navbar-nav ml-auto">
                 <a class="nav-link" href="#">About me</a>
                 <a class="nav-link" href="#">Facebook</a>
-                <a class="nav-link" href="#">Blog</a>
+                <a class="nav-link active" href="#">Blog</a>
                 </div>
             </div>
           </nav>
     </header>
 
 <main role="main">
+    
+    <h1 class="pt-4 pl-3">Recent posts</h1>
 
-  <section class="jumbotron text-center">
-    <div class="container">
-      <p class="lead text-muted">Hey there! I'm exited to see you here! You can write me right now!</p>
-      <p>
-        <a href="mailto:itsallover88@gmail.com" class="btn btn-primary my-2">Mail me</a>
-      </p>
-    </div>
-  </section>
+        {% for post in posts.all %}          <!--  Цикл для показа записей posts из базы -->
 
-  <div class="album py-5 bg-light">
-    <div class="container">
-      <div class="row">
-        
-        {% for event in events.all %}          <!--  Цикл для показа записей events из базы -->
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{event.event_image.url}}" />
-            <div class="card-body">
-              <p class="card-text">{{event.event_text}}</p>  <!--  Передача переменной (столбца) из БД -->
-              
-            </div>
-          </div>
-        </div>
-        
+            <h3 class="pt-5 pl-4">{{post.post_title}}</h3>
+            
+            <img class="pl-4 img-fluid" width="300px"  src="{{post.post_image.url}}" />
+            
+            <p class="pl-4">{{post.post_text}}</p>  <!--  Передача переменной (столбца) из БД -->
+            <p class="pl-4"> {{post.post_date}} </p>
+      
         {% endfor %}
-
-      </div>
-    </div>
-  </div>
-
+      
 </main>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
