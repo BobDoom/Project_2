@@ -8,3 +8,8 @@ class Post(models.Model):
     post_text = models.TextField()                                 # Можно использовать для больших текстов, аргументы не важны
     post_image = models.ImageField(upload_to = 'post_images/')
     
+    def get_summary(self):
+        return self.post_text[:70]
+
+    def __str__(self):                 # Заголовок в админке
+        return self.post_title    
